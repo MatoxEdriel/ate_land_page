@@ -1,0 +1,204 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout>
+  <section class="relative overflow-hidden pt-16 pb-24 md:pt-24 md:pb-32">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7 space-y-6">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-ate-primary/10 border border-ate-primary/20 text-ate-primary font-semibold text-xs tracking-wide uppercase">
+          <span class="w-2 h-2 rounded-full bg-ate-primary animate-pulse"></span>
+          Plataforma Inteligente de Saldos y Beneficios
+        </div>
+
+        <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl font-extrabold text-ate-text leading-tight tracking-tight">
+          Gestión inteligente de <span class="text-ate-primary underline decoration-ate-secondary/50 underline-offset-8">saldos</span> y beneficios corporativos
+        </h1>
+
+        <p class="text-lg md:text-xl text-ate-muted max-w-2xl font-normal leading-relaxed">
+          Optimiza la distribución de tarjetas de alimentación, créditos de salud y vales de consumo con análisis estadístico en tiempo real y máxima transparencia.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
+          <a
+            href="http://localhost:4200"
+            target="_blank"
+            class="px-8 py-4 rounded-xl font-bold text-base bg-ate-primary text-white hover:bg-ate-primary/90 shadow-ate-card hover:shadow-lg transition-all text-center"
+          >
+            Comenzar Ahora
+          </a>
+          <a
+            href="#beneficios"
+            class="px-8 py-4 rounded-xl font-bold text-base bg-ate-surface text-ate-text border border-ate-text/10 hover:border-ate-primary/30 transition-all text-center"
+          >
+            Explorar Soluciones
+          </a>
+        </div>
+
+        <div class="pt-8 border-t border-ate-text/10 grid grid-cols-3 gap-6">
+          <div>
+            <div class="font-heading font-extrabold text-2xl text-ate-primary">99.9%</div>
+            <div class="text-xs text-ate-muted font-medium">Disponibilidad del Sistema</div>
+          </div>
+          <div>
+            <div class="font-heading font-extrabold text-2xl text-ate-secondary">+50K</div>
+            <div class="text-xs text-ate-muted font-medium">Beneficiarios Activos</div>
+          </div>
+          <div>
+            <div class="font-heading font-extrabold text-2xl text-ate-text">100%</div>
+            <div class="text-xs text-ate-muted font-medium">Trazabilidad en tiempo real</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 relative">
+        <div class="absolute -top-10 -right-10 w-72 h-72 bg-ate-secondary/20 rounded-full blur-3xl -z-10"></div>
+        <div class="absolute -bottom-10 -left-10 w-72 h-72 bg-ate-primary/20 rounded-full blur-3xl -z-10"></div>
+
+        <div class="bg-ate-surface rounded-2xl p-6 shadow-ate-card border border-ate-text/5 space-y-6">
+          <div class="flex items-center justify-between pb-4 border-b border-ate-text/5">
+            <div>
+              <span class="text-xs text-ate-muted uppercase font-semibold">Resumen de Cuenta</span>
+              <h3 class="font-heading font-bold text-xl text-ate-text">Saldo Disponible</h3>
+            </div>
+            <span class="px-3 py-1 bg-ate-primary/10 text-ate-primary font-bold text-xs rounded-full">Activo</span>
+          </div>
+
+          <div class="space-y-2">
+            <div class="text-3xl font-heading font-extrabold text-ate-primary">$ 1,450.00</div>
+            <div class="text-xs text-ate-muted">Actualizado hace unos momentos</div>
+          </div>
+
+          <div class="space-y-3 pt-2">
+            <div class="p-3.5 rounded-xl bg-ate-canvas flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-ate-primary text-white flex items-center justify-center font-bold text-sm">
+                  🥗
+                </div>
+                <div>
+                  <div class="font-semibold text-sm text-ate-text">Vale Alimentación</div>
+                  <div class="text-xs text-ate-muted">Tarjeta Digital</div>
+                </div>
+              </div>
+              <div class="font-heading font-bold text-sm text-ate-text">$ 850.00</div>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-ate-canvas flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-ate-secondary text-white flex items-center justify-center font-bold text-sm">
+                  🏥
+                </div>
+                <div>
+                  <div class="font-semibold text-sm text-ate-text">Crédito de Salud</div>
+                  <div class="text-xs text-ate-muted">Cobertura Médica</div>
+                </div>
+              </div>
+              <div class="font-heading font-bold text-sm text-ate-text">$ 600.00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="beneficios" class="py-20 bg-ate-surface border-y border-ate-text/5">
+    <div class="max-w-7xl mx-auto px-6 space-y-12">
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <h2 class="font-heading text-3xl sm:text-4xl font-bold text-ate-text">
+          Diseñado para optimizar los beneficios de tu empresa
+        </h2>
+        <p class="text-ate-muted text-base">
+          Una suite completa de herramientas para administrar vales de consumo, salud y tarjetas con trazabilidad total.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-8 rounded-2xl bg-ate-canvas/50 border border-ate-text/5 hover:border-ate-primary/30 transition-all hover:-translate-y-1">
+          <div class="w-12 h-12 rounded-xl bg-ate-primary/10 text-ate-primary flex items-center justify-center text-2xl font-bold mb-6">
+            🥗
+          </div>
+          <h3 class="font-heading font-bold text-xl text-ate-text mb-3">Vales de Alimentación</h3>
+          <p class="text-sm text-ate-muted leading-relaxed">
+            Asignación directa y automatizada de recursos alimenticios con restricciones configurables por comercio.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-ate-canvas/50 border border-ate-text/5 hover:border-ate-secondary/30 transition-all hover:-translate-y-1">
+          <div class="w-12 h-12 rounded-xl bg-ate-secondary/10 text-ate-secondary flex items-center justify-center text-2xl font-bold mb-6">
+            🏥
+          </div>
+          <h3 class="font-heading font-bold text-xl text-ate-text mb-3">Créditos de Salud</h3>
+          <p class="text-sm text-ate-muted leading-relaxed">
+            Gestión transparente de subsidios de salud, consultas y farmacias integradas en una sola billetera.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-ate-canvas/50 border border-ate-text/5 hover:border-ate-alert/30 transition-all hover:-translate-y-1">
+          <div class="w-12 h-12 rounded-xl bg-ate-alert/10 text-ate-alert flex items-center justify-center text-2xl font-bold mb-6">
+            📊
+          </div>
+          <h3 class="font-heading font-bold text-xl text-ate-text mb-3">Reportes & Analítica</h3>
+          <p class="text-sm text-ate-muted leading-relaxed">
+            Dashboards estadísticos claros para tomar decisiones informadas sobre la distribución de recursos.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mascota" class="py-20">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="bg-ate-primary/5 p-10 rounded-3xl border border-ate-primary/10 flex items-center justify-center">
+        <div class="text-center space-y-4">
+          <div class="w-24 h-24 mx-auto rounded-full bg-ate-primary text-white font-heading font-black text-4xl flex items-center justify-center shadow-ate-card">
+            Aty
+          </div>
+          <div class="text-xs font-bold text-ate-primary tracking-widest uppercase">Mascota Oficial — Campana de Gauss</div>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <h2 class="font-heading text-3xl sm:text-4xl font-bold text-ate-text">
+          Conoce a <span class="text-ate-primary">Aty</span>, nuestra mascota de distribución estadística
+        </h2>
+        <p class="text-ate-muted leading-relaxed">
+          Inspirada en la campana de Gauss, **Aty** simboliza el equilibrio, la estabilidad y la distribución equitativa de los saldos y beneficios dentro de la organización.
+        </p>
+        <ul class="space-y-3 text-sm text-ate-text">
+          <li class="flex items-center gap-3">
+            <span class="w-2 h-2 rounded-full bg-ate-primary"></span>
+            Equilibrio garantizado en la asignación presupuestaria.
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="w-2 h-2 rounded-full bg-ate-primary"></span>
+            Trazabilidad estadística libre de sesgos.
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="w-2 h-2 rounded-full bg-ate-primary"></span>
+            Optimización continua del valor para colaboradores.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="py-20 bg-ate-primary text-white">
+    <div class="max-w-5xl mx-auto px-6 text-center space-y-8">
+      <h2 class="font-heading text-3xl sm:text-5xl font-extrabold text-white">
+        ¿Listo para llevar los beneficios de tu empresa al siguiente nivel?
+      </h2>
+      <p class="text-white/80 text-lg max-w-2xl mx-auto">
+        Únete a las empresas inteligentes que confían en Ate para administrar sus saldos y vales corporativos.
+      </p>
+      <div class="pt-4">
+        <a
+          href="http://localhost:4200"
+          target="_blank"
+          class="inline-block px-10 py-4 rounded-xl font-bold text-lg bg-white text-ate-primary hover:bg-ate-canvas shadow-lg transition-all"
+        >
+          Acceder a la Aplicación
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>

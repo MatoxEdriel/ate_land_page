@@ -1,0 +1,106 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Ate — Gestión Inteligente de Saldos y Beneficios Empresariales',
+  description = 'Plataforma centralizada e intuitiva para la administración de vales de consumo, créditos de alimentación y salud con análisis estadístico en tiempo real.',
+} = Astro.props;
+---
+
+<!dnctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+  </head>
+  <body class="bg-ate-canvas text-ate-text min-h-screen flex flex-col antialiased">
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-ate-canvas/90 border-b border-ate-text/10 transition-all">
+      <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-ate-primary text-white flex items-center justify-center font-bold text-xl shadow-ate-sm group-hover:scale-105 transition-transform">
+            a
+          </div>
+          <span class="font-heading font-extrabold text-2xl tracking-tight text-ate-primary">ate</span>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-ate-text/80">
+          <a href="#beneficios" class="hover:text-ate-primary transition-colors">Beneficios</a>
+          <a href="#soluciones" class="hover:text-ate-primary transition-colors">Soluciones</a>
+          <a href="#mascota" class="hover:text-ate-primary transition-colors">Aty & Estadística</a>
+          <a href="#contacto" class="hover:text-ate-primary transition-colors">Contacto</a>
+        </nav>
+
+        <div class="flex items-center gap-4">
+          <a
+            href="http://localhost:4200"
+            target="_blank"
+            class="px-5 py-2.5 rounded-xl font-semibold text-sm bg-ate-primary text-white hover:bg-ate-primary/90 shadow-ate-sm hover:shadow-md transition-all active:scale-95"
+          >
+            Ingresar a la App
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <footer class="bg-ate-text text-white/90 py-12 border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="space-y-4">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-ate-primary text-white flex items-center justify-center font-bold text-lg">
+              a
+            </div>
+            <span class="font-heading font-bold text-xl text-white">ate</span>
+          </div>
+          <p class="text-sm text-white/70">
+            Plataforma de gestión inteligente de vales, créditos de consumo y beneficios empresariales.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-white mb-3 text-sm uppercase tracking-wider">Producto</h4>
+          <ul class="space-y-2 text-sm text-white/70">
+            <li><a href="#beneficios" class="hover:text-white transition-colors">Vales de Alimentación</a></li>
+            <li><a href="#beneficios" class="hover:text-white transition-colors">Créditos de Salud</a></li>
+            <li><a href="#soluciones" class="hover:text-white transition-colors">Analítica de Saldos</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-white mb-3 text-sm uppercase tracking-wider">Empresa</h4>
+          <ul class="space-y-2 text-sm text-white/70">
+            <li><a href="#" class="hover:text-white transition-colors">Acerca de Ate</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Seguridad & Cumplimiento</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-white mb-3 text-sm uppercase tracking-wider">Soporte</h4>
+          <p class="text-sm text-white/70 mb-4">¿Necesitas asistencia corporativa?</p>
+          <a href="mailto:contacto@ate.com" class="inline-block text-sm font-semibold text-ate-secondary hover:underline">
+            contacto@ate.com
+          </a>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto px-6 mt-12 pt-6 border-t border-white/10 text-center text-xs text-white/50">
+        &copy; {new Date().getFullYear()} Ate Inc. Todos los derechos reservados.
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-ate-canvas: #f8f6f0;
+  --color-ate-primary: #14725b;
+  --color-ate-secondary: #d4a373;
+  --color-ate-alert: #e05a47;
+  --color-ate-surface: #ffffff;
+  --color-ate-text: #2b2d2f;
+  --color-ate-muted: #6c757d;
+
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+
+  --radius-ate-sm: 8px;
+  --radius-ate-md: 14px;
+  --radius-ate-lg: 22px;
+  --radius-ate-full: 9999px;
+
+  --shadow-ate-sm: 0 2px 8px rgba(20, 114, 91, 0.06);
+  --shadow-ate-card: 0 10px 30px rgba(43, 45, 47, 0.05);
+}
+
+:root {
+  --bg-canvas: #f8f6f0;
+  --color-primary: #14725b;
+  --color-secondary: #d4a373;
+  --color-alert: #e05a47;
+  --color-surface: #ffffff;
+  --color-text: #2b2d2f;
+  --color-text-muted: #6c757d;
+
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-ate-canvas);
+  color: var(--color-ate-text);
+  line-height: 1.5;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  color: var(--color-ate-text);
+  font-weight: 700;
+}
