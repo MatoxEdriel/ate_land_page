@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 160" width="100%" height="100%">
+  <!-- Mascot "A" -->
+  <g transform="translate(10, 10)">
+    <!-- Mascot Outer Body Background -->
+    <path d="M 65 25 
+             C 45 45, 20 85, 10 135 
+             L 130 135 
+             C 120 85, 95 45, 75 25 
+             C 70 20, 68 20, 65 25 Z" 
+          fill="#F8F6F0" stroke="#2B2D2F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Center Division Line -->
+    <path d="M 70 22 C 68 55, 71 95, 70 135" 
+          fill="none" stroke="#2B2D2F" stroke-width="4" stroke-linecap="round" />
+
+    <!-- Left Eye -->
+    <circle cx="48" cy="72" r="8" fill="#FFFFFF" stroke="#2B2D2F" stroke-width="3" />
+
+    <!-- Right Eye -->
+    <circle cx="92" cy="72" r="8" fill="#FFFFFF" stroke="#2B2D2F" stroke-width="3" />
+  </g>
+
+  <!-- Typography "te" in Brand Jade Green (#14725B) -->
+  <g transform="translate(145, 20)" fill="#14725B">
+    <!-- Letter 't' -->
+    <path d="M 12 10 L 32 10 L 32 40 L 48 40 L 48 58 L 32 58 L 32 105 C 32 118, 40 122, 48 122 L 52 122 L 52 138 C 44 140, 26 142, 16 130 C 10 122, 12 110, 12 100 L 12 58 L 0 58 L 0 40 L 12 40 Z" />
+    
+    <!-- Letter 'e' -->
+    <path d="M 68 85 C 68 56, 86 38, 115 38 C 142 38, 158 56, 158 85 L 158 96 L 90 96 C 92 115, 104 125, 122 125 C 136 125, 146 118, 152 108 L 168 116 C 158 134, 142 144, 120 144 C 88 144, 68 122, 68 85 Z M 90 78 L 136 78 C 136 64, 128 54, 114 54 C 100 54, 92 64, 90 78 Z" />
+  </g>
+</svg>

@@ -1,9 +1,8 @@
 ---
-import { Icon } from 'astro-icon/components';
 import { siteConfig } from '../../data/siteConfig';
 import { statsData } from '../../data/stats';
 import Button from '../common/Button.astro';
-import Card from '../common/Card.astro';
+import LiveSimulator from './LiveSimulator.astro';
 ---
 
 <section class="relative overflow-hidden pt-16 pb-24 md:pt-24 md:pb-32">
@@ -41,52 +40,8 @@ import Card from '../common/Card.astro';
       </div>
     </div>
 
-    <div class="lg:col-span-5 relative">
-      <div class="absolute -top-10 -right-10 w-72 h-72 bg-ate-secondary/20 rounded-full blur-3xl -z-10"></div>
-      <div class="absolute -bottom-10 -left-10 w-72 h-72 bg-ate-primary/20 rounded-full blur-3xl -z-10"></div>
-
-      <Card class="space-y-6">
-        <div class="flex items-center justify-between pb-4 border-b border-ate-text/5">
-          <div>
-            <span class="text-xs text-ate-muted uppercase font-semibold">Resumen de Cuenta</span>
-            <h3 class="font-heading font-bold text-xl text-ate-text">Saldo Disponible</h3>
-          </div>
-          <span class="px-3 py-1 bg-ate-primary/10 text-ate-primary font-bold text-xs rounded-full">Activo</span>
-        </div>
-
-        <div class="space-y-2">
-          <div class="text-3xl font-heading font-extrabold text-ate-primary">$ 1,450.00</div>
-          <div class="text-xs text-ate-muted">Actualizado hace unos momentos</div>
-        </div>
-
-        <div class="space-y-3 pt-2">
-          <div class="p-3.5 rounded-xl bg-ate-canvas flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <div class="w-9 h-9 rounded-lg bg-ate-primary text-white flex items-center justify-center font-bold text-sm">
-                <Icon name="lucide:utensils" class="w-5 h-5" />
-              </div>
-              <div>
-                <div class="font-semibold text-sm text-ate-text">Vale Alimentación</div>
-                <div class="text-xs text-ate-muted">Tarjeta Digital</div>
-              </div>
-            </div>
-            <div class="font-heading font-bold text-sm text-ate-text">$ 850.00</div>
-          </div>
-
-          <div class="p-3.5 rounded-xl bg-ate-canvas flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <div class="w-9 h-9 rounded-lg bg-ate-secondary text-white flex items-center justify-center font-bold text-sm">
-                <Icon name="lucide:heart-pulse" class="w-5 h-5" />
-              </div>
-              <div>
-                <div class="font-semibold text-sm text-ate-text">Crédito de Salud</div>
-                <div class="text-xs text-ate-muted">Cobertura Médica</div>
-              </div>
-            </div>
-            <div class="font-heading font-bold text-sm text-ate-text">$ 600.00</div>
-          </div>
-        </div>
-      </Card>
+    <div class="lg:col-span-5 w-full">
+      <LiveSimulator />
     </div>
   </div>
 </section>
