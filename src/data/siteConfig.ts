@@ -1,8 +1,10 @@
 export const siteConfig = {
   name: 'Ate',
-  tagline: 'Gestión Inteligente de Saldos y Beneficios Empresariales',
+  badge: 'Rápido · Fácil · Accesible',
+  headline: 'La forma más fácil de almorzar sin complicaciones',
+  tagline: 'Almuerzos Inteligentes y Analítica de Demanda',
   description:
-    'Plataforma centralizada e intuitiva para la administración de vales de consumo, créditos de alimentación y salud con análisis estadístico en tiempo real.',
+    'Pide tu almuerzo, reserva tu gym o accede a servicios de salud en segundos. Disfruta tus lugares favoritos sin hacer filas, sin tarjetas y sin pagar en caja.',
   appUrl: 'http://localhost:4200',
   supportEmail: 'contacto@ate.com',
   links: {

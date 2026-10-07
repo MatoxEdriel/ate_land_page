@@ -1,12 +1,12 @@
 export const atyInfo = {
   name: 'Aty',
   subtitle: 'Mascota Oficial — Campana de Gauss',
-  title: 'Conoce a Aty, nuestra mascota de distribución estadística',
+  title: 'Aty: Datos e Inteligencia para la Toma de Decisiones',
   description:
-    'Inspirada en la campana de Gauss, Aty simboliza el equilibrio, la estabilidad y la distribución equitativa de los saldos y beneficios dentro de la organización.',
+    'Inspirada en la curva de Gauss, Aty transforma los patrones de consumo en información estratégica. Ayuda a los restaurantes a predecir picos de demanda y a las empresas a optimizar sus presupuestos de alimentación sin sesgos.',
   bulletPoints: [
-    'Equilibrio garantizado en la asignación presupuestaria.',
-    'Trazabilidad estadística libre de sesgos.',
-    'Optimización continua del valor para colaboradores.',
+    'Predicción precisa de demanda diaria para restaurantes aliados.',
+    'Optimización de menús y reducción de desperdicios en cocina.',
+    'Trazabilidad presupuestaria y decisiones basadas en distribución estadística real.',
   ],
 };

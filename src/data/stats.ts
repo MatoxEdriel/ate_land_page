@@ -6,18 +6,18 @@ export interface StatItem {
 
 export const statsData: StatItem[] = [
   {
-    value: '99.9%',
-    label: 'Disponibilidad del Sistema',
+    value: '-35%',
+    label: 'Reducción de Mermas en Cocina',
     colorClass: 'text-ate-primary',
   },
   {
-    value: '+50K',
-    label: 'Beneficiarios Activos',
+    value: '100%',
+    label: 'Almuerzos Sin Pago en Caja',
     colorClass: 'text-ate-secondary',
   },
   {
-    value: '100%',
-    label: 'Trazabilidad en tiempo real',
+    value: '< 1 min',
+    label: 'Tiempo máximo para pedir comida',
     colorClass: 'text-ate-text',
   },
 ];

@@ -1,0 +1,170 @@
+---
+---
+
+<div class="bg-ate-primary/5 p-6 sm:p-10 rounded-3xl border border-ate-primary/10 flex flex-col items-center justify-center relative overflow-hidden group min-h-[340px]">
+  <div class="absolute -top-12 -right-12 w-64 h-64 bg-ate-primary/10 rounded-full blur-3xl"></div>
+
+  <div class="relative z-10 w-full flex flex-col items-center justify-center text-center">
+    <div id="gauss-mascot-container" class="relative w-full max-w-[540px] h-[270px] cursor-pointer touch-none select-none">
+      <svg id="gauss-mascot-svg" class="w-full h-full overflow-visible pointer-events-none" viewBox="0 0 540 270">
+        <defs>
+          <linearGradient id="body-shade-left" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#e6e1d6"></stop>
+            <stop offset="100%" stop-color="#f5f3ec"></stop>
+          </linearGradient>
+
+          <linearGradient id="trace-grid-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#14725b" stop-opacity="0.25"></stop>
+            <stop offset="100%" stop-color="#14725b" stop-opacity="0.02"></stop>
+          </linearGradient>
+        </defs>
+
+        <g id="gauss-grid-lines"></g>
+
+        <path id="gauss-left-shade" fill="url(#body-shade-left)" d=""></path>
+        <path id="gauss-body-fill" fill="#f5f3ec" stroke="#2b2d2f" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" d=""></path>
+        <path id="gauss-center-seam" fill="none" stroke="#2b2d2f" stroke-width="2.5" stroke-linecap="round" d=""></path>
+
+        <g id="left-eye" transform="translate(238, 110)">
+          <circle cx="0" cy="0" r="7.5" fill="#ffffff" stroke="#2b2d2f" stroke-width="2.5"></circle>
+        </g>
+
+        <g id="right-eye" transform="translate(302, 110)">
+          <circle cx="0" cy="0" r="7.5" fill="#ffffff" stroke="#2b2d2f" stroke-width="2.5"></circle>
+        </g>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<script>
+  const container = document.getElementById('gauss-mascot-container');
+  const bodyFill = document.getElementById('gauss-body-fill');
+  const leftShade = document.getElementById('gauss-left-shade');
+  const centerSeam = document.getElementById('gauss-center-seam');
+  const gridLinesGroup = document.getElementById('gauss-grid-lines');
+  const leftEyeGroup = document.getElementById('left-eye');
+  const rightEyeGroup = document.getElementById('right-eye');
+
+  const width = 540;
+  const height = 270;
+  const baselineY = 242;
+  const maxAmplitude = 175;
+
+  let currentMean = width / 2;
+  let targetMean = width / 2;
+  let currentSigma = 95;
+  let targetSigma = 95;
+
+  let mouseX = -1000;
+  let mouseY = -1000;
+  let isHovered = false;
+
+  function renderGridLines(points: { x: number; y: number }[]) {
+    if (!gridLinesGroup) return;
+    let linesSvg = '';
+    const step = 6;
+    for (let i = 0; i < points.length; i += step) {
+      const pt = points[i];
+      linesSvg += `<line x1="${pt.x}" y1="${baselineY}" x2="${pt.x}" y2="${pt.y}" stroke="url(#trace-grid-grad)" stroke-width="1.5" />`;
+    }
+    gridLinesGroup.innerHTML = linesSvg;
+  }
+
+  function computeCurvePoints(meanX: number, sigmaX: number) {
+    const points: { x: number; y: number }[] = [];
+    const totalPoints = 96;
+    for (let i = 0; i <= totalPoints; i++) {
+      const x = (i / totalPoints) * width;
+      const exponent = -Math.pow(x - meanX, 2) / (2 * Math.pow(sigmaX, 2));
+      const gaussianFactor = Math.exp(exponent);
+      const y = baselineY - maxAmplitude * gaussianFactor;
+      points.push({ x, y });
+    }
+    return points;
+  }
+
+  function buildClosedBodyPath(points: { x: number; y: number }[]) {
+    let d = `M ${points[0].x} ${baselineY}`;
+    for (let i = 0; i < points.length; i++) {
+      d += ` L ${points[i].x} ${points[i].y}`;
+    }
+    d += ` L ${points[points.length - 1].x} ${baselineY} Z`;
+    return d;
+  }
+
+  function buildLeftShadePath(points: { x: number; y: number }[], peakIdx: number) {
+    let d = `M ${points[0].x} ${baselineY}`;
+    for (let i = 0; i <= peakIdx; i++) {
+      d += ` L ${points[i].x} ${points[i].y}`;
+    }
+    const peakPt = points[peakIdx];
+    d += ` Q ${peakPt.x} ${(peakPt.y + baselineY) / 2} ${currentMean} ${baselineY} Z`;
+    return d;
+  }
+
+  function updateMascotPhysics() {
+    if (!container) return;
+
+    if (isHovered) {
+      const rect = container.getBoundingClientRect();
+      const relativeMouseX = (mouseX - rect.left) * (width / (rect.width || 1));
+      const centerDist = relativeMouseX - (width / 2);
+      
+      const normalizedDist = Math.max(-1, Math.min(1, centerDist / (width / 2)));
+      const maxAvoidance = 110;
+
+      targetMean = (width / 2) - Math.sin(normalizedDist * Math.PI * 0.5) * maxAvoidance;
+      targetSigma = 90 + Math.abs(normalizedDist) * 20;
+    } else {
+      targetMean = width / 2;
+      targetSigma = 95;
+    }
+
+    currentMean += (targetMean - currentMean) * 0.05;
+    currentSigma += (targetSigma - currentSigma) * 0.05;
+
+    const points = computeCurvePoints(currentMean, currentSigma);
+    const bodyD = buildClosedBodyPath(points);
+
+    let peakIdx = 0;
+    for (let i = 1; i < points.length; i++) {
+      if (points[i].y < points[peakIdx].y) {
+        peakIdx = i;
+      }
+    }
+    const peakPt = points[peakIdx];
+
+    const leftShadeD = buildLeftShadePath(points, peakIdx);
+    const seamD = `M ${peakPt.x} ${peakPt.y} Q ${peakPt.x + (currentMean - width / 2) * 0.12} ${(peakPt.y + baselineY) / 2} ${currentMean} ${baselineY}`;
+
+    if (bodyFill) bodyFill.setAttribute('d', bodyD);
+    if (leftShade) leftShade.setAttribute('d', leftShadeD);
+    if (centerSeam) centerSeam.setAttribute('d', seamD);
+
+    renderGridLines(points);
+
+    const eyeY = peakPt.y + 64;
+    const leftEyeX = peakPt.x - 32;
+    const rightEyeX = peakPt.x + 32;
+
+    if (leftEyeGroup) leftEyeGroup.setAttribute('transform', `translate(${leftEyeX}, ${eyeY})`);
+    if (rightEyeGroup) rightEyeGroup.setAttribute('transform', `translate(${rightEyeX}, ${eyeY})`);
+
+    requestAnimationFrame(updateMascotPhysics);
+  }
+
+  if (container) {
+    container.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      isHovered = true;
+    });
+
+    container.addEventListener('mouseleave', () => {
+      isHovered = false;
+    });
+  }
+
+  requestAnimationFrame(updateMascotPhysics);
+</script>

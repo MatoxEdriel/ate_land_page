@@ -8,27 +8,27 @@ export interface Feature {
 
 export const featuresData: Feature[] = [
   {
-    id: 'alimentacion',
+    id: 'almuerzos',
     icon: 'lucide:utensils',
-    title: 'Vales de Alimentación',
+    title: 'Almuerzos Sin Fricción',
     description:
-      'Asignación directa y automatizada de recursos alimenticios con restricciones configurables por comercio.',
+      'Tus colaboradores piden desde la app, van a su restaurante favorito, comen y se van. El pago se liquida automáticamente a fin de mes.',
     badgeColor: 'primary',
   },
   {
-    id: 'salud',
-    icon: 'lucide:heart-pulse',
-    title: 'Créditos de Salud',
+    id: 'demanda',
+    icon: 'lucide:store',
+    title: 'Previsión para Restaurantes',
     description:
-      'Gestión transparente de subsidios de salud, consultas y farmacias integradas en una sola billetera digital.',
+      'Los restaurantes aliados conocen con anticipación el número de comensales y platos solicitados, eliminando mermas.',
     badgeColor: 'secondary',
   },
   {
-    id: 'analitica',
-    icon: 'lucide:chart-no-axes-combined',
-    title: 'Reportes & Analítica',
+    id: 'sin-filas',
+    icon: 'lucide:users-round',
+    title: 'Sin Filas',
     description:
-      'Dashboards estadísticos claros para tomar decisiones informadas sobre la distribución de recursos corporativos.',
+      'Los colaboradores llegan al local con su orden lista. Sin esperar mesa, sin pagar en caja ni tramitar reembolsos.',
     badgeColor: 'alert',
   },
 ];

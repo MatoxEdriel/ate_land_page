@@ -8,13 +8,17 @@ import LiveSimulator from './LiveSimulator.astro';
 <section class="relative overflow-hidden pt-16 pb-24 md:pt-24 md:pb-32">
   <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
     <div class="lg:col-span-7 space-y-6">
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-ate-primary/10 border border-ate-primary/20 text-ate-primary font-semibold text-xs tracking-wide uppercase">
-        <span class="w-2 h-2 rounded-full bg-ate-primary animate-pulse"></span>
-        Plataforma Inteligente de Saldos y Beneficios
-      </div>
-
       <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl font-extrabold text-ate-text leading-tight tracking-tight">
-        Gestión inteligente de <span class="text-ate-primary underline decoration-ate-secondary/50 underline-offset-8">saldos</span> y beneficios corporativos
+        La forma más <span class="text-ate-primary underline decoration-ate-secondary/50 underline-offset-8">fácil</span> de
+        <span class="inline-flex items-center justify-center relative overflow-hidden align-bottom h-[1.25em] w-[180px] sm:w-[240px] mx-1 transition-all duration-500 ease-out">
+          <span
+            id="rotating-word"
+            class="inline-block text-ate-primary font-extrabold transition-all duration-500 transform translate-y-0 opacity-100 whitespace-nowrap"
+          >
+            almorzar
+          </span>
+        </span>
+        sin complicaciones
       </h1>
 
       <p class="text-lg md:text-xl text-ate-muted max-w-2xl font-normal leading-relaxed">
@@ -45,3 +49,31 @@ import LiveSimulator from './LiveSimulator.astro';
     </div>
   </div>
 </section>
+
+<script>
+  const rotatingWords = ['almorzar', 'entrenar', 'cuidarte', 'comprar'];
+  let wordIndex = 0;
+  const wordElement = document.getElementById('rotating-word');
+
+  function rotateWord() {
+    if (!wordElement) return;
+
+    wordElement.classList.remove('translate-y-0', 'opacity-100');
+    wordElement.classList.add('translate-y-6', 'opacity-0');
+
+    setTimeout(() => {
+      wordIndex = (wordIndex + 1) % rotatingWords.length;
+      wordElement.textContent = rotatingWords[wordIndex];
+
+      wordElement.classList.remove('translate-y-6');
+      wordElement.classList.add('-translate-y-6');
+
+      requestAnimationFrame(() => {
+        wordElement.classList.remove('-translate-y-6', 'opacity-0');
+        wordElement.classList.add('translate-y-0', 'opacity-100');
+      });
+    }, 450);
+  }
+
+  setInterval(rotateWord, 2800);
+</script>
