@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 import { atyInfo } from '../../data/atyInfo';
 ---
 
@@ -23,7 +24,7 @@ import { atyInfo } from '../../data/atyInfo';
       <ul class="space-y-3 text-sm text-ate-text">
         {atyInfo.bulletPoints.map((point) => (
           <li class="flex items-center gap-3">
-            <span class="w-2 h-2 rounded-full bg-ate-primary"></span>
+            <Icon name="lucide:check-circle-2" class="w-5 h-5 text-ate-primary flex-shrink-0" />
             {point}
           </li>
         ))}

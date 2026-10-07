@@ -9,7 +9,7 @@ export interface Feature {
 export const featuresData: Feature[] = [
   {
     id: 'alimentacion',
-    icon: '🥗',
+    icon: 'lucide:utensils',
     title: 'Vales de Alimentación',
     description:
       'Asignación directa y automatizada de recursos alimenticios con restricciones configurables por comercio.',
@@ -17,7 +17,7 @@ export const featuresData: Feature[] = [
   },
   {
     id: 'salud',
-    icon: '🏥',
+    icon: 'lucide:heart-pulse',
     title: 'Créditos de Salud',
     description:
       'Gestión transparente de subsidios de salud, consultas y farmacias integradas en una sola billetera digital.',
@@ -25,7 +25,7 @@ export const featuresData: Feature[] = [
   },
   {
     id: 'analitica',
-    icon: '📊',
+    icon: 'lucide:chart-no-axes-combined',
     title: 'Reportes & Analítica',
     description:
       'Dashboards estadísticos claros para tomar decisiones informadas sobre la distribución de recursos corporativos.',
