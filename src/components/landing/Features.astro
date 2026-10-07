@@ -1,0 +1,42 @@
+---
+import { featuresData } from '../../data/features';
+
+const borderColors = {
+  primary: 'hover:border-ate-primary/30',
+  secondary: 'hover:border-ate-secondary/30',
+  alert: 'hover:border-ate-alert/30',
+};
+
+const iconBg = {
+  primary: 'bg-ate-primary/10 text-ate-primary',
+  secondary: 'bg-ate-secondary/10 text-ate-secondary',
+  alert: 'bg-ate-alert/10 text-ate-alert',
+};
+---
+
+<section id="beneficios" class="py-20 bg-ate-surface border-y border-ate-text/5">
+  <div class="max-w-7xl mx-auto px-6 space-y-12">
+    <div class="text-center max-w-3xl mx-auto space-y-4">
+      <h2 class="font-heading text-3xl sm:text-4xl font-bold text-ate-text">
+        Diseñado para optimizar los beneficios de tu empresa
+      </h2>
+      <p class="text-ate-muted text-base">
+        Una suite completa de herramientas para administrar vales de consumo, salud y tarjetas con trazabilidad total.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {featuresData.map((feature) => (
+        <div class={`p-8 rounded-2xl bg-ate-canvas/50 border border-ate-text/5 ${borderColors[feature.badgeColor]} transition-all hover:-translate-y-1`}>
+          <div class={`w-12 h-12 rounded-xl ${iconBg[feature.badgeColor]} flex items-center justify-center text-2xl font-bold mb-6`}>
+            {feature.icon}
+          </div>
+          <h3 class="font-heading font-bold text-xl text-ate-text mb-3">{feature.title}</h3>
+          <p class="text-sm text-ate-muted leading-relaxed">
+            {feature.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

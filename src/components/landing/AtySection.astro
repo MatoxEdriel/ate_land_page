@@ -1,0 +1,33 @@
+---
+import { atyInfo } from '../../data/atyInfo';
+---
+
+<section id="mascota" class="py-20">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <div class="bg-ate-primary/5 p-10 rounded-3xl border border-ate-primary/10 flex items-center justify-center">
+      <div class="text-center space-y-4">
+        <div class="w-24 h-24 mx-auto rounded-full bg-ate-primary text-white font-heading font-black text-4xl flex items-center justify-center shadow-ate-card">
+          {atyInfo.name}
+        </div>
+        <div class="text-xs font-bold text-ate-primary tracking-widest uppercase">{atyInfo.subtitle}</div>
+      </div>
+    </div>
+
+    <div class="space-y-6">
+      <h2 class="font-heading text-3xl sm:text-4xl font-bold text-ate-text">
+        {atyInfo.title}
+      </h2>
+      <p class="text-ate-muted leading-relaxed">
+        {atyInfo.description}
+      </p>
+      <ul class="space-y-3 text-sm text-ate-text">
+        {atyInfo.bulletPoints.map((point) => (
+          <li class="flex items-center gap-3">
+            <span class="w-2 h-2 rounded-full bg-ate-primary"></span>
+            {point}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

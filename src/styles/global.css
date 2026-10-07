@@ -33,6 +33,14 @@
 
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Plus Jakarta Sans', sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-full: 9999px;
+
+  --border-thin: 1px solid rgba(43, 45, 47, 0.1);
+  --border-medium: 2px solid #14725b;
 }
 
 *,

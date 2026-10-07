@@ -1,0 +1,48 @@
+---
+import { siteConfig } from '../../data/siteConfig';
+---
+
+<footer class="bg-ate-text text-white/90 py-12 border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+    <div class="space-y-4">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-ate-primary text-white flex items-center justify-center font-bold text-lg">
+          a
+        </div>
+        <span class="font-heading font-bold text-xl text-white">ate</span>
+      </div>
+      <p class="text-sm text-white/70">
+        Plataforma de gestión inteligente de vales, créditos de consumo y beneficios empresariales.
+      </p>
+    </div>
+
+    <div>
+      <h4 class="font-heading font-bold text-white mb-3 text-sm uppercase tracking-wider">Producto</h4>
+      <ul class="space-y-2 text-sm text-white/70">
+        <li><a href={siteConfig.links.benefits} class="hover:text-white transition-colors">Vales de Alimentación</a></li>
+        <li><a href={siteConfig.links.benefits} class="hover:text-white transition-colors">Créditos de Salud</a></li>
+        <li><a href={siteConfig.links.solutions} class="hover:text-white transition-colors">Analítica de Saldos</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="font-heading font-bold text-white mb-3 text-sm uppercase tracking-wider">Empresa</h4>
+      <ul class="space-y-2 text-sm text-white/70">
+        <li><a href="#" class="hover:text-white transition-colors">Acerca de Ate</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">Seguridad & Cumplimiento</a></li>
+        <li><a href={siteConfig.links.contact} class="hover:text-white transition-colors">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="font-heading font-bold text-white mb-3 text-sm uppercase tracking-wider">Soporte</h4>
+      <p class="text-sm text-white/70 mb-4">¿Necesitas asistencia corporativa?</p>
+      <a href={`mailto:${siteConfig.supportEmail}`} class="inline-block text-sm font-semibold text-ate-secondary hover:underline">
+        {siteConfig.supportEmail}
+      </a>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-6 mt-12 pt-6 border-t border-white/10 text-center text-xs text-white/50">
+    &copy; {new Date().getFullYear()} {siteConfig.name} Inc. Todos los derechos reservados.
+  </div>
+</footer>

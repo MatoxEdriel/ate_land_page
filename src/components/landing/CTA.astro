@@ -1,0 +1,20 @@
+---
+import { siteConfig } from '../../data/siteConfig';
+import Button from '../common/Button.astro';
+---
+
+<section id="contacto" class="py-20 bg-ate-primary text-white">
+  <div class="max-w-5xl mx-auto px-6 text-center space-y-8">
+    <h2 class="font-heading text-3xl sm:text-5xl font-extrabold text-white">
+      ¿Listo para llevar los beneficios de tu empresa al siguiente nivel?
+    </h2>
+    <p class="text-white/80 text-lg max-w-2xl mx-auto">
+      Únete a las empresas inteligentes que confían en Ate para administrar sus saldos y vales corporativos.
+    </p>
+    <div class="pt-4">
+      <Button href={siteConfig.appUrl} target="_blank" variant="white">
+        Acceder a la Aplicación
+      </Button>
+    </div>
+  </div>
+</section>
