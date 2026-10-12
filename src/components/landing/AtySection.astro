@@ -2,18 +2,30 @@
 import { Icon } from 'astro-icon/components';
 import { atyInfo } from '../../data/atyInfo';
 
+const borderColors = {
+  primary: 'hover:border-ate-primary/40 hover:shadow-lg hover:shadow-ate-primary/10',
+  secondary: 'hover:border-ate-secondary/40 hover:shadow-lg hover:shadow-ate-secondary/15',
+  alert: 'hover:border-ate-alert/40 hover:shadow-lg hover:shadow-ate-alert/10',
+};
+
+const watermarkColors = {
+  primary: 'text-ate-primary/10',
+  secondary: 'text-ate-secondary/15',
+  alert: 'text-ate-alert/10',
+};
+
 const leftFeatures = [
   {
     title: 'Predicción de Demanda',
     description: 'Anticipa picos diarios de comensales para que los restaurantes preparen raciones exactas.',
     icon: 'lucide:trending-up',
-    badgeClass: 'bg-ate-primary/10 text-ate-primary',
+    badgeColor: 'primary' as const,
   },
   {
     title: 'Cocina Cero Mermas',
     description: 'Reduce hasta un 35% el desperdicio de insumos sincronizando inventario con menús reservados.',
     icon: 'lucide:utensils',
-    badgeClass: 'bg-ate-secondary/20 text-ate-primary',
+    badgeColor: 'secondary' as const,
   },
 ];
 
@@ -22,13 +34,13 @@ const rightFeatures = [
     title: 'Distribución Sin Sesgos',
     description: 'Asignación presupuestaria equilibrada basada en patrones de consumo y la curva normal.',
     icon: 'lucide:scale',
-    badgeClass: 'bg-ate-primary/10 text-ate-primary',
+    badgeColor: 'primary' as const,
   },
   {
     title: 'Trazabilidad Total',
     description: 'Decisiones inteligentes con analítica en vivo y sin conciliaciones manuales a fin de mes.',
     icon: 'lucide:activity',
-    badgeClass: 'bg-ate-alert/10 text-ate-alert',
+    badgeColor: 'alert' as const,
   },
 ];
 ---
@@ -36,11 +48,6 @@ const rightFeatures = [
 <section id="mascota" class="py-24 sm:py-32 relative overflow-hidden">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20 space-y-4">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-ate-primary/10 text-ate-primary border border-ate-primary/20">
-        <span class="w-1.5 h-1.5 rounded-full bg-ate-primary animate-pulse"></span>
-        <span>{atyInfo.subtitle}</span>
-      </div>
-
       <h2 class="font-heading text-3xl sm:text-5xl font-extrabold text-ate-text tracking-tight">
         {atyInfo.title}
       </h2>
@@ -55,18 +62,23 @@ const rightFeatures = [
         <div class="lg:col-span-4 flex flex-col gap-6 order-2 lg:order-1">
           {leftFeatures.map((item, index) => (
             <div
-              class="aty-card aty-card-left p-6 sm:p-7 rounded-2xl bg-white/90 backdrop-blur-md border border-ate-text/10 shadow-[0_6px_28px_rgba(43,45,47,0.05)] hover:shadow-xl hover:border-ate-primary/30 transition-all duration-300 group"
+              class={`aty-card aty-card-left relative overflow-hidden p-7 sm:p-8 rounded-3xl bg-white dark:bg-ate-surface border border-ate-text/10 dark:border-white/10 shadow-ate-card ${borderColors[item.badgeColor]} transition-all duration-300 flex flex-col justify-center min-h-[160px] group`}
               style={`transition-delay: ${index * 130}ms;`}
             >
-              <div class={`w-11 h-11 rounded-xl flex items-center justify-center font-bold mb-4 group-hover:scale-110 transition-transform duration-200 ${item.badgeClass}`}>
-                <Icon name={item.icon} class="w-5 h-5" />
+              <div
+                class={`absolute -right-4 -bottom-4 w-32 h-32 sm:w-36 sm:h-36 pointer-events-none transition-transform duration-500 ease-out group-hover:scale-110 group-hover:-rotate-6 ${watermarkColors[item.badgeColor]}`}
+              >
+                <Icon name={item.icon} class="w-full h-full stroke-[1.2]" />
               </div>
-              <h3 class="font-heading font-bold text-lg text-ate-text mb-2 group-hover:text-ate-primary transition-colors">
-                {item.title}
-              </h3>
-              <p class="text-sm text-ate-muted leading-relaxed">
-                {item.description}
-              </p>
+
+              <div class="relative z-10 flex flex-col justify-center">
+                <h3 class="font-heading font-extrabold text-xl text-ate-text mb-2.5 group-hover:text-ate-primary transition-colors tracking-tight">
+                  {item.title}
+                </h3>
+                <p class="text-sm text-ate-muted leading-relaxed max-w-[88%]">
+                  {item.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
@@ -74,7 +86,7 @@ const rightFeatures = [
         <div class="lg:col-span-4 flex flex-col items-center justify-center order-1 lg:order-2 py-6 relative">
           <div class="aty-centerpiece flex flex-col items-center justify-center w-full">
             <div class="relative flex items-center justify-center w-full">
-              <div class="absolute w-64 h-64 bg-ate-primary/10 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+              <div class="absolute w-64 h-64 bg-ate-primary/10 dark:hidden rounded-full blur-3xl -z-10 pointer-events-none"></div>
 
               <img
                 src="/mascot.svg"
@@ -88,18 +100,23 @@ const rightFeatures = [
         <div class="lg:col-span-4 flex flex-col gap-6 order-3">
           {rightFeatures.map((item, index) => (
             <div
-              class="aty-card aty-card-right p-6 sm:p-7 rounded-2xl bg-white/90 backdrop-blur-md border border-ate-text/10 shadow-[0_6px_28px_rgba(43,45,47,0.05)] hover:shadow-xl hover:border-ate-primary/30 transition-all duration-300 group"
+              class={`aty-card aty-card-right relative overflow-hidden p-7 sm:p-8 rounded-3xl bg-white dark:bg-ate-surface border border-ate-text/10 dark:border-white/10 shadow-ate-card ${borderColors[item.badgeColor]} transition-all duration-300 flex flex-col justify-center min-h-[160px] group`}
               style={`transition-delay: ${(index + 2) * 130}ms;`}
             >
-              <div class={`w-11 h-11 rounded-xl flex items-center justify-center font-bold mb-4 group-hover:scale-110 transition-transform duration-200 ${item.badgeClass}`}>
-                <Icon name={item.icon} class="w-5 h-5" />
+              <div
+                class={`absolute -right-4 -bottom-4 w-32 h-32 sm:w-36 sm:h-36 pointer-events-none transition-transform duration-500 ease-out group-hover:scale-110 group-hover:-rotate-6 ${watermarkColors[item.badgeColor]}`}
+              >
+                <Icon name={item.icon} class="w-full h-full stroke-[1.2]" />
               </div>
-              <h3 class="font-heading font-bold text-lg text-ate-text mb-2 group-hover:text-ate-primary transition-colors">
-                {item.title}
-              </h3>
-              <p class="text-sm text-ate-muted leading-relaxed">
-                {item.description}
-              </p>
+
+              <div class="relative z-10 flex flex-col justify-center">
+                <h3 class="font-heading font-extrabold text-xl text-ate-text mb-2.5 group-hover:text-ate-primary transition-colors tracking-tight">
+                  {item.title}
+                </h3>
+                <p class="text-sm text-ate-muted leading-relaxed max-w-[88%]">
+                  {item.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
@@ -143,7 +160,12 @@ const rightFeatures = [
   #aty-showcase.is-visible .aty-card-left,
   #aty-showcase.is-visible .aty-card-right {
     opacity: 1;
-    transform: translateX(0);
+    transform: translate(0, 0);
+  }
+
+  #aty-showcase.is-visible .aty-card-left:hover,
+  #aty-showcase.is-visible .aty-card-right:hover {
+    transform: translateY(-6px);
   }
 
   #aty-showcase.is-visible .aty-centerpiece {
@@ -160,6 +182,11 @@ const rightFeatures = [
     #aty-showcase.is-visible .aty-card-left,
     #aty-showcase.is-visible .aty-card-right {
       transform: translateY(0) !important;
+    }
+
+    #aty-showcase.is-visible .aty-card-left:hover,
+    #aty-showcase.is-visible .aty-card-right:hover {
+      transform: translateY(-6px) !important;
     }
   }
 </style>

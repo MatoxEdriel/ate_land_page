@@ -2,7 +2,7 @@
 ---
 
 <div class="bg-ate-primary/5 p-6 sm:p-10 rounded-3xl border border-ate-primary/10 flex flex-col items-center justify-center relative overflow-hidden group min-h-[340px]">
-  <div class="absolute -top-12 -right-12 w-64 h-64 bg-ate-primary/10 rounded-full blur-3xl"></div>
+  <div class="absolute -top-12 -right-12 w-64 h-64 bg-ate-primary/10 dark:hidden rounded-full blur-3xl"></div>
 
   <div class="relative z-10 w-full flex flex-col items-center justify-center text-center">
     <div id="gauss-mascot-container" class="relative w-full max-w-[540px] h-[270px] cursor-pointer touch-none select-none">
@@ -14,23 +14,23 @@
           </linearGradient>
 
           <linearGradient id="trace-grid-grad" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#14725b" stop-opacity="0.25"></stop>
-            <stop offset="100%" stop-color="#14725b" stop-opacity="0.02"></stop>
+            <stop offset="0%" stop-color="var(--color-primary)" stop-opacity="0.25"></stop>
+            <stop offset="100%" stop-color="var(--color-primary)" stop-opacity="0.02"></stop>
           </linearGradient>
         </defs>
 
         <g id="gauss-grid-lines"></g>
 
         <path id="gauss-left-shade" fill="url(#body-shade-left)" d=""></path>
-        <path id="gauss-body-fill" fill="#f5f3ec" stroke="#2b2d2f" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" d=""></path>
-        <path id="gauss-center-seam" fill="none" stroke="#2b2d2f" stroke-width="2.5" stroke-linecap="round" d=""></path>
+        <path id="gauss-body-fill" fill="#f5f3ec" stroke="var(--color-text)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" d=""></path>
+        <path id="gauss-center-seam" fill="none" stroke="var(--color-text)" stroke-width="2.5" stroke-linecap="round" d=""></path>
 
         <g id="left-eye" transform="translate(238, 110)">
-          <circle cx="0" cy="0" r="7.5" fill="#ffffff" stroke="#2b2d2f" stroke-width="2.5"></circle>
+          <circle cx="0" cy="0" r="7.5" fill="#ffffff" stroke="var(--color-text)" stroke-width="2.5"></circle>
         </g>
 
         <g id="right-eye" transform="translate(302, 110)">
-          <circle cx="0" cy="0" r="7.5" fill="#ffffff" stroke="#2b2d2f" stroke-width="2.5"></circle>
+          <circle cx="0" cy="0" r="7.5" fill="#ffffff" stroke="var(--color-text)" stroke-width="2.5"></circle>
         </g>
       </svg>
     </div>

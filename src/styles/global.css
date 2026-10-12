@@ -1,14 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
-  --color-ate-canvas: #f8f6f0;
-  --color-ate-primary: #14725b;
-  --color-ate-secondary: #d4a373;
-  --color-ate-alert: #e05a47;
-  --color-ate-surface: #ffffff;
-  --color-ate-text: #2b2d2f;
-  --color-ate-muted: #6c757d;
+  --color-ate-canvas: var(--color-canvas);
+  --color-ate-primary: var(--color-primary);
+  --color-ate-secondary: var(--color-secondary);
+  --color-ate-alert: var(--color-alert);
+  --color-ate-surface: var(--color-surface);
+  --color-ate-surface-elevated: var(--color-surface-elevated);
+  --color-ate-text: var(--color-text);
+  --color-ate-muted: var(--color-muted);
+  --color-ate-footer: var(--color-footer);
 
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Plus Jakarta Sans', sans-serif;
@@ -18,29 +22,34 @@
   --radius-ate-lg: 22px;
   --radius-ate-full: 9999px;
 
-  --shadow-ate-sm: 0 2px 8px rgba(20, 114, 91, 0.06);
-  --shadow-ate-card: 0 10px 30px rgba(43, 45, 47, 0.05);
+  --shadow-ate-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-ate-card: 0 10px 30px rgba(0, 0, 0, 0.06);
 }
 
 :root {
-  --bg-canvas: #f8f6f0;
+  --color-canvas: #f8f6f0;
   --color-primary: #14725b;
   --color-secondary: #d4a373;
   --color-alert: #e05a47;
   --color-surface: #ffffff;
+  --color-surface-elevated: #ffffff;
   --color-text: #2b2d2f;
-  --color-text-muted: #6c757d;
+  --color-muted: #6c757d;
+  --color-footer: #2b2d2f;
+  color-scheme: light;
+}
 
-  --font-heading: 'Outfit', sans-serif;
-  --font-body: 'Plus Jakarta Sans', sans-serif;
-
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 22px;
-  --radius-full: 9999px;
-
-  --border-thin: 1px solid rgba(43, 45, 47, 0.1);
-  --border-medium: 2px solid #14725b;
+.dark {
+  --color-canvas: #181614;
+  --color-primary: #2b7a67;
+  --color-secondary: #cf9f6e;
+  --color-alert: #cf5d4c;
+  --color-surface: #24211d;
+  --color-surface-elevated: #2a2622;
+  --color-text: #f3eee6;
+  --color-muted: #a69e94;
+  --color-footer: #12100f;
+  color-scheme: dark;
 }
 
 *,
@@ -56,6 +65,7 @@ body {
   line-height: 1.5;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1,

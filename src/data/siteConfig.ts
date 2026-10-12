@@ -6,7 +6,7 @@ export const siteConfig = {
   description:
     'Pide tu almuerzo, reserva tu gym o accede a servicios de salud en segundos. Disfruta tus lugares favoritos sin hacer filas, sin tarjetas y sin pagar en caja.',
   appUrl: 'http://localhost:4200',
-  supportEmail: 'contacto@ate.com',
+  supportEmail: 'soporte@ate.com',
   links: {
     benefits: '#beneficios',
     solutions: '#soluciones',
