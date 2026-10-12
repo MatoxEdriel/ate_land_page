@@ -1,28 +1,159 @@
 ---
+import { Icon } from 'astro-icon/components';
 import { siteConfig } from '../../data/siteConfig';
-import Button from '../common/Button.astro';
+
+const navItems = [
+  { label: 'Beneficios', href: siteConfig.links.benefits, icon: 'lucide:sparkles' },
+  { label: 'Soluciones', href: siteConfig.links.solutions, icon: 'lucide:layout-grid' },
+  { label: 'Aty & Estadística', href: siteConfig.links.pet, icon: 'lucide:bot' },
+  { label: 'Contacto', href: siteConfig.links.contact, icon: 'lucide:mail' },
+];
 ---
 
-<header class="sticky top-0 z-50 backdrop-blur-md bg-ate-canvas/90 border-b border-ate-text/10 transition-all">
-  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-    <a href="/" class="flex items-center gap-3 group">
-      <div class="w-10 h-10 rounded-xl bg-ate-primary text-white flex items-center justify-center font-bold text-xl shadow-ate-sm group-hover:scale-105 transition-transform">
-        a
+<header class="sticky top-3 sm:top-5 z-50 px-4 sm:px-6 w-full pointer-events-none">
+  <div id="navbar-wrapper" class="max-w-5xl mx-auto pointer-events-auto">
+    <div
+      id="navbar-pill"
+      class="bg-white/85 backdrop-blur-xl border border-ate-text/10 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.06)] px-3 sm:px-5 py-2.5 flex items-center justify-between transition-all duration-300"
+    >
+      <a href="/" class="flex items-center gap-2.5 group pl-1">
+        <div class="w-9 h-9 rounded-full bg-ate-primary text-white flex items-center justify-center font-bold text-lg shadow-ate-sm group-hover:scale-105 group-hover:rotate-3 transition-transform duration-200">
+          a
+        </div>
+        <span class="font-heading font-extrabold text-2xl tracking-tight text-ate-primary">
+          ate
+        </span>
+        <span class="hidden sm:inline-flex items-center gap-1.5 ml-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-ate-primary/10 text-ate-primary">
+          <span class="w-1.5 h-1.5 rounded-full bg-ate-primary animate-pulse"></span>
+          Smart Dining
+        </span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-1 lg:gap-1.5">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class="px-3.5 py-1.5 rounded-full text-sm font-semibold text-ate-text/80 hover:text-ate-primary hover:bg-ate-primary/8 transition-all duration-150"
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <a
+          href={siteConfig.appUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hidden sm:inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full font-bold text-xs sm:text-sm bg-ate-primary text-white hover:bg-ate-primary/90 shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all duration-200 group"
+        >
+          <span>Ingresar a la App</span>
+          <Icon name="lucide:arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+        </a>
+
+        <button
+          id="mobile-menu-toggle"
+          type="button"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          class="md:hidden flex items-center justify-center w-9 h-9 rounded-full bg-ate-canvas border border-ate-text/10 text-ate-text hover:text-ate-primary hover:bg-white transition-colors cursor-pointer"
+        >
+          <Icon id="menu-icon-open" name="lucide:menu" class="w-5 h-5" />
+          <Icon id="menu-icon-close" name="lucide:x" class="w-5 h-5 hidden" />
+        </button>
       </div>
-      <span class="font-heading font-extrabold text-2xl tracking-tight text-ate-primary">ate</span>
-    </a>
+    </div>
 
-    <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-ate-text/80">
-      <a href={siteConfig.links.benefits} class="hover:text-ate-primary transition-colors">Beneficios</a>
-      <a href={siteConfig.links.solutions} class="hover:text-ate-primary transition-colors">Soluciones</a>
-      <a href={siteConfig.links.pet} class="hover:text-ate-primary transition-colors">Aty & Estadística</a>
-      <a href={siteConfig.links.contact} class="hover:text-ate-primary transition-colors">Contacto</a>
-    </nav>
+    <div
+      id="mobile-menu"
+      class="hidden md:hidden mt-2 p-4 bg-white/95 backdrop-blur-2xl border border-ate-text/10 rounded-3xl shadow-2xl transition-all duration-300"
+    >
+      <div class="flex flex-col gap-1.5">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class="mobile-nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-ate-text hover:text-ate-primary hover:bg-ate-primary/10 transition-colors"
+          >
+            <div class="w-8 h-8 rounded-xl bg-ate-canvas flex items-center justify-center text-ate-primary">
+              <Icon name={item.icon} class="w-4 h-4" />
+            </div>
+            <span>{item.label}</span>
+          </a>
+        ))}
+      </div>
 
-    <div class="flex items-center gap-4">
-      <Button href={siteConfig.appUrl} target="_blank" variant="primary">
-        Ingresar a la App
-      </Button>
+      <div class="mt-4 pt-3 border-t border-ate-text/10">
+        <a
+          href={siteConfig.appUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mobile-nav-link flex items-center justify-center gap-2 w-full py-3 px-4 rounded-2xl font-bold text-sm bg-ate-primary text-white hover:bg-ate-primary/90 shadow-sm transition-all"
+        >
+          <span>Ingresar a la App</span>
+          <Icon name="lucide:arrow-right" class="w-4 h-4" />
+        </a>
+      </div>
     </div>
   </div>
 </header>
+
+<script>
+  function setupNavbar() {
+    const navbarPill = document.getElementById('navbar-pill');
+    const menuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+    const navLinks = document.querySelectorAll('.mobile-nav-link');
+    const wrapper = document.getElementById('navbar-wrapper');
+
+    if (!navbarPill || !menuToggle || !mobileMenu || !iconOpen || !iconClose) {
+      return;
+    }
+
+    function toggleMenu(forceState) {
+      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      const shouldOpen = typeof forceState === 'boolean' ? forceState : !isExpanded;
+
+      menuToggle.setAttribute('aria-expanded', String(shouldOpen));
+
+      if (shouldOpen) {
+        mobileMenu.classList.remove('hidden');
+        iconOpen.classList.add('hidden');
+        iconClose.classList.remove('hidden');
+      } else {
+        mobileMenu.classList.add('hidden');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      }
+    }
+
+    menuToggle.addEventListener('click', () => toggleMenu());
+
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => toggleMenu(false));
+    });
+
+    document.addEventListener('click', (event) => {
+      if (wrapper && !wrapper.contains(event.target) && !mobileMenu.classList.contains('hidden')) {
+        toggleMenu(false);
+      }
+    });
+
+    function handleScroll() {
+      if (window.scrollY > 20) {
+        navbarPill.classList.add('shadow-lg', 'bg-white/95', 'border-ate-text/15');
+        navbarPill.classList.remove('bg-white/85');
+      } else {
+        navbarPill.classList.remove('shadow-lg', 'bg-white/95', 'border-ate-text/15');
+        navbarPill.classList.add('bg-white/85');
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+  }
+
+  setupNavbar();
+  document.addEventListener('astro:after-swap', setupNavbar);
+</script>
