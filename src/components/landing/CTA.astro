@@ -4,17 +4,92 @@ import Button from '../common/Button.astro';
 ---
 
 <section id="contacto" class="py-20 bg-ate-primary dark:bg-gradient-to-b dark:from-ate-primary/30 dark:to-ate-surface border-t border-transparent dark:border-white/5 text-white">
-  <div class="max-w-5xl mx-auto px-6 text-center space-y-8">
-    <h2 class="font-heading text-3xl sm:text-5xl font-extrabold text-white">
-      ¿Listo para llevar los beneficios de tu empresa al siguiente nivel?
-    </h2>
-    <p class="text-white/80 text-lg max-w-2xl mx-auto">
-      Únete a las empresas inteligentes que confían en Ate para administrar sus saldos y vales corporativos.
-    </p>
-    <div class="pt-4">
-      <Button href={siteConfig.appUrl} target="_blank" variant="white">
-        Acceder a la Aplicación
-      </Button>
+  <div class="max-w-6xl mx-auto px-6 text-center space-y-12">
+    <!-- Encabezado y llamada a la acción -->
+    <div class="space-y-6 max-w-3xl mx-auto">
+      <h2 class="font-heading text-3xl sm:text-5xl font-extrabold text-white leading-tight">
+        ¿Listo para llevar los beneficios de tu empresa al siguiente nivel?
+      </h2>
+      <p class="text-white/80 text-lg leading-relaxed">
+        Únete a las empresas inteligentes que confían en Ate para administrar sus saldos y vales corporativos.
+      </p>
+      <div class="pt-2">
+        <Button href={siteConfig.appUrl} target="_blank" variant="white">
+          Acceder a la Aplicación
+        </Button>
+      </div>
+    </div>
+
+    <!-- Espacios para marcas afiliadas con cuadrícula y líneas divisorias -->
+    <div class="pt-4 space-y-5">
+      <p class="text-xs uppercase tracking-widest text-white/60 font-semibold">
+        Marcas afiliadas a la red de beneficios
+      </p>
+
+      <div class="border-y border-white/20 dark:border-white/10">
+        <div class="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 divide-x divide-white/20 dark:divide-white/10">
+          <!-- Slot: Marca 01 -->
+          <div class="group flex items-center justify-center h-28 sm:h-32 px-6 transition-all duration-200 hover:bg-white/[0.04]">
+            <div class="flex items-center justify-center gap-3 text-white/70 group-hover:text-white transition-colors">
+              <svg class="w-7 h-7 flex-shrink-0" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 2.5l9 5.2v10.6l-9 5.2-9-5.2V7.7l9-5.2z" />
+                <path d="M14 2.5v21" stroke-dasharray="2 2" stroke-width="1.5" />
+              </svg>
+              <div class="text-left leading-tight">
+                <span class="font-heading font-bold text-base sm:text-lg tracking-tight block">Marca 01</span>
+                <span class="text-[9px] tracking-wider uppercase text-white/40 block font-medium group-hover:text-white/60 transition-colors">Espacio disponible</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slot: Marca 02 -->
+          <div class="group flex items-center justify-center h-28 sm:h-32 px-6 transition-all duration-200 hover:bg-white/[0.04]">
+            <div class="flex items-center justify-center gap-3 text-white/70 group-hover:text-white transition-colors">
+              <svg class="w-7 h-7 flex-shrink-0" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="14" y="2" width="16" height="16" rx="2" transform="rotate(45 14 2)" />
+                <circle cx="14" cy="14" r="3" fill="currentColor" />
+              </svg>
+              <div class="text-left leading-tight">
+                <span class="font-heading font-bold text-base sm:text-lg tracking-tight block">Marca 02</span>
+                <span class="text-[9px] tracking-wider uppercase text-white/40 block font-medium group-hover:text-white/60 transition-colors">Espacio disponible</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slot: Marca 03 -->
+          <div class="group flex items-center justify-center h-28 sm:h-32 px-6 transition-all duration-200 hover:bg-white/[0.04]">
+            <div class="flex items-center justify-center gap-3 text-white/70 group-hover:text-white transition-colors">
+              <svg class="w-7 h-7 flex-shrink-0" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="8" y1="6" x2="8" y2="22" stroke-width="2.5" />
+                <line x1="14" y1="3" x2="14" y2="22" stroke-width="2.5" />
+                <line x1="20" y1="9" x2="20" y2="22" stroke-width="2.5" />
+                <circle cx="8" cy="3" r="1.5" fill="currentColor" />
+                <circle cx="14" cy="1" r="1.5" fill="currentColor" />
+                <circle cx="20" cy="5" r="1.5" fill="currentColor" />
+              </svg>
+              <div class="text-left leading-tight">
+                <span class="font-heading font-bold text-base sm:text-lg tracking-tight block">Marca 03</span>
+                <span class="text-[9px] tracking-wider uppercase text-white/40 block font-medium group-hover:text-white/60 transition-colors">Espacio disponible</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slot: Marca 04 -->
+          <div class="group flex items-center justify-center h-28 sm:h-32 px-6 transition-all duration-200 hover:bg-white/[0.04]">
+            <div class="flex items-center justify-center gap-3 text-white/70 group-hover:text-white transition-colors">
+              <svg class="w-7 h-7 flex-shrink-0" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="14" cy="14" r="11" />
+                <circle cx="14" cy="14" r="6" stroke-dasharray="2 2" />
+                <circle cx="14" cy="14" r="2.5" fill="currentColor" />
+              </svg>
+              <div class="text-left leading-tight">
+                <span class="font-heading font-bold text-base sm:text-lg tracking-tight block">Marca 04</span>
+                <span class="text-[9px] tracking-wider uppercase text-white/40 block font-medium group-hover:text-white/60 transition-colors">Espacio disponible</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
