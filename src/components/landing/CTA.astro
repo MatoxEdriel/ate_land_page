@@ -4,17 +4,83 @@ import Button from '../common/Button.astro';
 ---
 
 <section id="contacto" class="py-20 bg-ate-primary dark:bg-gradient-to-b dark:from-ate-primary/30 dark:to-ate-surface border-t border-transparent dark:border-white/5 text-white">
-  <div class="max-w-5xl mx-auto px-6 text-center space-y-8">
-    <h2 class="font-heading text-3xl sm:text-5xl font-extrabold text-white">
-      ¿Listo para llevar los beneficios de tu empresa al siguiente nivel?
-    </h2>
-    <p class="text-white/80 text-lg max-w-2xl mx-auto">
-      Únete a las empresas inteligentes que confían en Ate para administrar sus saldos y vales corporativos.
-    </p>
-    <div class="pt-4">
-      <Button href={siteConfig.appUrl} target="_blank" variant="white">
-        Acceder a la Aplicación
-      </Button>
+  <div class="max-w-6xl mx-auto px-6 text-center space-y-12">
+    <!-- Encabezado y llamada a la acción -->
+    <div class="space-y-6 max-w-3xl mx-auto">
+      <h2 class="font-heading text-3xl sm:text-5xl font-extrabold text-white leading-tight">
+        ¿Listo para llevar los beneficios de tu empresa al siguiente nivel?
+      </h2>
+      <p class="text-white/80 text-lg leading-relaxed">
+        Únete a las empresas inteligentes que confían en Ate para administrar sus saldos y vales corporativos.
+      </p>
+      <div class="pt-2">
+        <Button href={siteConfig.appUrl} target="_blank" variant="white">
+          Acceder a la Aplicación
+        </Button>
+      </div>
+    </div>
+
+    <!-- Marcas afiliadas a la aplicación en cuadrícula con líneas divisorias -->
+    <div class="pt-4 space-y-5">
+      <p class="text-xs uppercase tracking-widest text-white/60 font-semibold">
+        Marcas afiliadas a la red de beneficios
+      </p>
+
+      <div class="border-y border-white/20 dark:border-white/10">
+        <div class="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 divide-x divide-white/20 dark:divide-white/10">
+          <!-- Sweet & Coffee -->
+          <div class="group flex items-center justify-center h-28 sm:h-32 px-6 transition-all duration-200 hover:bg-white/[0.04]">
+            <div class="flex items-center justify-center gap-3 text-white/80 group-hover:text-white transition-colors">
+              <svg class="w-8 h-8 flex-shrink-0" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 13h15v7a6 6 0 0 1-6 6h-3a6 6 0 0 1-6-6v-7z" />
+                <path d="M21 15h3.5a2.5 2.5 0 0 1 0 5H21" />
+                <path d="M3 28h22" stroke-width="2.2" />
+                <path d="M10 6c0 1.5-1.5 2.5-1.5 4" stroke-width="1.8" />
+                <path d="M14 5c0 1.5-1.5 2.5-1.5 4" stroke-width="1.8" />
+                <path d="M18 6c0 1.5-1.5 2.5-1.5 4" stroke-width="1.8" />
+              </svg>
+              <span class="font-heading font-bold text-base sm:text-lg tracking-tight">Sweet & Coffee</span>
+            </div>
+          </div>
+
+          <!-- Fybeca -->
+          <div class="group flex items-center justify-center h-28 sm:h-32 px-6 transition-all duration-200 hover:bg-white/[0.04]">
+            <div class="flex items-center justify-center gap-2.5 text-white/80 group-hover:text-white transition-colors">
+              <svg class="w-7 h-7 flex-shrink-0" viewBox="0 0 28 28" fill="currentColor" aria-hidden="true">
+                <rect x="10" y="3" width="8" height="22" rx="3" />
+                <rect x="3" y="10" width="22" height="8" rx="3" />
+              </svg>
+              <span class="font-heading font-black text-xl sm:text-2xl tracking-tighter lowercase">fybeca</span>
+            </div>
+          </div>
+
+          <!-- Smart Fit -->
+          <div class="group flex items-center justify-center h-28 sm:h-32 px-6 transition-all duration-200 hover:bg-white/[0.04]">
+            <div class="flex items-center justify-center gap-2.5 text-white/80 group-hover:text-white transition-colors">
+              <svg class="w-7 h-7 flex-shrink-0" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="14" cy="14" r="11" />
+                <path d="M9 14h10" stroke-width="2.8" />
+                <circle cx="9" cy="14" r="2.5" fill="currentColor" />
+                <circle cx="19" cy="14" r="2.5" fill="currentColor" />
+              </svg>
+              <div class="font-heading text-lg sm:text-xl tracking-tight">
+                <span class="font-normal">smart</span><span class="font-black ml-1">fit</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rukito -->
+          <div class="group flex items-center justify-center h-28 sm:h-32 px-6 transition-all duration-200 hover:bg-white/[0.04]">
+            <div class="flex items-center justify-center gap-2.5 text-white/80 group-hover:text-white transition-colors">
+              <svg class="w-7 h-7 flex-shrink-0" viewBox="0 0 28 28" fill="currentColor" aria-hidden="true">
+                <path d="M14 2c-1.2 3.5-4.2 6.5-4.2 10.2 0 4 3.2 7.3 7.2 7.3s7.2-3.3 7.2-7.3c0-2.8-1.5-5.5-3.5-7.3 0 2.8-1.4 4.5-3.2 4.5S12.5 7 14 2z" />
+                <path d="M6 23h16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+              </svg>
+              <span class="font-heading font-black text-lg sm:text-xl tracking-wide uppercase">Rukito</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
