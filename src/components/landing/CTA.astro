@@ -1,95 +1,135 @@
 ---
 import { siteConfig } from '../../data/siteConfig';
+import {
+  ctaGaussColors,
+  ctaGaussOpacity,
+  hexToRgba,
+} from '../../constants/theme';
 import Button from '../common/Button.astro';
+
+const gaussLineStroke = hexToRgba(ctaGaussColors.accent, ctaGaussOpacity.line);
+const gaussLineSoftStroke = hexToRgba(ctaGaussColors.accentSoft, ctaGaussOpacity.lineSoft);
 ---
 
-<section id="contacto" class="py-20 bg-ate-primary dark:bg-gradient-to-b dark:from-ate-primary/30 dark:to-ate-surface border-t border-transparent dark:border-white/5 text-white">
-  <div class="max-w-6xl mx-auto px-6 text-center space-y-12">
-    <!-- Encabezado y llamada a la acción -->
-    <div class="space-y-6 max-w-3xl mx-auto">
-      <h2 class="font-heading text-3xl sm:text-5xl font-extrabold text-white leading-tight">
-        ¿Listo para llevar los beneficios de tu empresa al siguiente nivel?
-      </h2>
-      <p class="text-white/80 text-lg leading-relaxed">
-        Únete a las empresas inteligentes que confían en Ate para administrar sus saldos y vales corporativos.
-      </p>
-      <div class="pt-2">
-        <Button href={siteConfig.appUrl} target="_blank" variant="white">
-          Acceder a la Aplicación
-        </Button>
-      </div>
-    </div>
+<section id="contacto" class="relative overflow-hidden py-20 bg-ate-primary dark:bg-gradient-to-b dark:from-ate-primary/30 dark:to-ate-surface border-t border-transparent dark:border-white/5 text-white">
+  <div class="cta-gauss absolute inset-0 pointer-events-none" aria-hidden="true">
+    <svg class="w-full h-full" viewBox="0 0 1200 400" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="ctaGaussFill" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color={ctaGaussColors.accent} stop-opacity={ctaGaussOpacity.fill}></stop>
+          <stop offset="100%" stop-color={ctaGaussColors.accent} stop-opacity={ctaGaussOpacity.fillEnd}></stop>
+        </linearGradient>
+      </defs>
+      <path class="cta-gauss-fill" fill="url(#ctaGaussFill)"></path>
+      <path class="cta-gauss-line" fill="none" stroke={gaussLineStroke} stroke-width="1.5" vector-effect="non-scaling-stroke"></path>
+      <path class="cta-gauss-line-soft" fill="none" stroke={gaussLineSoftStroke} stroke-width="1" vector-effect="non-scaling-stroke"></path>
+    </svg>
+  </div>
 
-    <!-- Espacios para marcas afiliadas con cuadrícula y líneas divisorias -->
-    <div class="pt-4 space-y-5">
-      <p class="text-xs uppercase tracking-widest text-white/60 font-semibold">
-        Marcas afiliadas a la red de beneficios
-      </p>
-
-      <div class="border-y border-white/20 dark:border-white/10">
-        <div class="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 divide-x divide-white/20 dark:divide-white/10">
-          <!-- Slot: Marca 01 -->
-          <div class="group flex items-center justify-center h-28 sm:h-32 px-6 transition-all duration-200 hover:bg-white/[0.04]">
-            <div class="flex items-center justify-center gap-3 text-white/70 group-hover:text-white transition-colors">
-              <svg class="w-7 h-7 flex-shrink-0" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M14 2.5l9 5.2v10.6l-9 5.2-9-5.2V7.7l9-5.2z" />
-                <path d="M14 2.5v21" stroke-dasharray="2 2" stroke-width="1.5" />
-              </svg>
-              <div class="text-left leading-tight">
-                <span class="font-heading font-bold text-base sm:text-lg tracking-tight block">Marca 01</span>
-                <span class="text-[9px] tracking-wider uppercase text-white/40 block font-medium group-hover:text-white/60 transition-colors">Espacio disponible</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Slot: Marca 02 -->
-          <div class="group flex items-center justify-center h-28 sm:h-32 px-6 transition-all duration-200 hover:bg-white/[0.04]">
-            <div class="flex items-center justify-center gap-3 text-white/70 group-hover:text-white transition-colors">
-              <svg class="w-7 h-7 flex-shrink-0" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="14" y="2" width="16" height="16" rx="2" transform="rotate(45 14 2)" />
-                <circle cx="14" cy="14" r="3" fill="currentColor" />
-              </svg>
-              <div class="text-left leading-tight">
-                <span class="font-heading font-bold text-base sm:text-lg tracking-tight block">Marca 02</span>
-                <span class="text-[9px] tracking-wider uppercase text-white/40 block font-medium group-hover:text-white/60 transition-colors">Espacio disponible</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Slot: Marca 03 -->
-          <div class="group flex items-center justify-center h-28 sm:h-32 px-6 transition-all duration-200 hover:bg-white/[0.04]">
-            <div class="flex items-center justify-center gap-3 text-white/70 group-hover:text-white transition-colors">
-              <svg class="w-7 h-7 flex-shrink-0" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <line x1="8" y1="6" x2="8" y2="22" stroke-width="2.5" />
-                <line x1="14" y1="3" x2="14" y2="22" stroke-width="2.5" />
-                <line x1="20" y1="9" x2="20" y2="22" stroke-width="2.5" />
-                <circle cx="8" cy="3" r="1.5" fill="currentColor" />
-                <circle cx="14" cy="1" r="1.5" fill="currentColor" />
-                <circle cx="20" cy="5" r="1.5" fill="currentColor" />
-              </svg>
-              <div class="text-left leading-tight">
-                <span class="font-heading font-bold text-base sm:text-lg tracking-tight block">Marca 03</span>
-                <span class="text-[9px] tracking-wider uppercase text-white/40 block font-medium group-hover:text-white/60 transition-colors">Espacio disponible</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Slot: Marca 04 -->
-          <div class="group flex items-center justify-center h-28 sm:h-32 px-6 transition-all duration-200 hover:bg-white/[0.04]">
-            <div class="flex items-center justify-center gap-3 text-white/70 group-hover:text-white transition-colors">
-              <svg class="w-7 h-7 flex-shrink-0" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="14" cy="14" r="11" />
-                <circle cx="14" cy="14" r="6" stroke-dasharray="2 2" />
-                <circle cx="14" cy="14" r="2.5" fill="currentColor" />
-              </svg>
-              <div class="text-left leading-tight">
-                <span class="font-heading font-bold text-base sm:text-lg tracking-tight block">Marca 04</span>
-                <span class="text-[9px] tracking-wider uppercase text-white/40 block font-medium group-hover:text-white/60 transition-colors">Espacio disponible</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="relative max-w-5xl mx-auto px-6 text-center space-y-8">
+    <h2 class="font-heading text-3xl sm:text-5xl font-extrabold text-white">
+      ¿Listo para llevar los beneficios de tu empresa al siguiente nivel?
+    </h2>
+    <p class="text-white/80 text-lg max-w-2xl mx-auto">
+      Únete a las empresas inteligentes que confían en Ate para administrar sus saldos y vales corporativos.
+    </p>
+    <div class="pt-4">
+      <Button href={siteConfig.appUrl} target="_blank" variant="white">
+        Acceder a la Aplicación
+      </Button>
     </div>
   </div>
 </section>
+
+<script>
+  function setupCtaGauss() {
+    const layer = document.querySelector<HTMLElement>('.cta-gauss');
+    if (!layer || layer.dataset.ready === '1') return;
+    layer.dataset.ready = '1';
+
+    const section = layer.closest('#contacto');
+    const line = layer.querySelector('.cta-gauss-line');
+    const lineSoft = layer.querySelector('.cta-gauss-line-soft');
+    const fill = layer.querySelector('.cta-gauss-fill');
+    if (!section || !line || !lineSoft || !fill) return;
+
+    const W = 1200;
+    const H = 400;
+    const BASE = 430;
+    const AMP = 345;
+    const SIGMA = 155;
+    const PERIOD = W;
+    const STEP = 10;
+    const DURATION = 22000;
+    const EDGE = 80;
+
+    function bellPoints(mu: number, amp: number, sigma: number) {
+      const pts: string[] = [];
+      let first = true;
+      for (let x = -EDGE; x <= W + EDGE; x += STEP) {
+        let peak = 0;
+        for (let k = -1; k <= 1; k++) {
+          const dx = (x - (mu + k * PERIOD)) / sigma;
+          const v = Math.exp(-0.5 * dx * dx);
+          if (v > peak) peak = v;
+        }
+        const px = (first ? 'M' : 'L') + x.toFixed(1) + ' ' + (BASE - peak * amp).toFixed(1);
+        pts.push(px);
+        first = false;
+      }
+      return pts.join('');
+    }
+
+    function closedPath(d: string) {
+      return `${d}L${W + EDGE} ${H}L${-EDGE} ${H}Z`;
+    }
+
+    function render(mu: number) {
+      const main = bellPoints(mu, AMP, SIGMA);
+      line.setAttribute('d', main);
+      fill.setAttribute('d', closedPath(main));
+      lineSoft.setAttribute('d', bellPoints(mu + PERIOD / 2, AMP * 0.5, SIGMA * 0.75));
+    }
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) {
+      render(PERIOD * 0.35);
+      return;
+    }
+
+    let raf: number | null = null;
+    let start: number | null = null;
+
+    function frame(ts: number) {
+      if (start === null) start = ts;
+      const t = ((ts - start) % DURATION) / DURATION;
+      render(t * PERIOD);
+      raf = requestAnimationFrame(frame);
+    }
+
+    function stop() {
+      if (raf !== null) cancelAnimationFrame(raf);
+      raf = null;
+      start = null;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            if (raf === null) raf = requestAnimationFrame(frame);
+          } else {
+            stop();
+          }
+        }
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(section);
+
+    render(0);
+  }
+
+  setupCtaGauss();
+  document.addEventListener('astro:after-swap', setupCtaGauss);
+</script>
