@@ -25,3 +25,23 @@ export const themeColors = {
 
 export type ThemeMode = keyof typeof themeColors;
 export type ColorToken = keyof typeof themeColors.light;
+
+export const ctaGaussColors = {
+  accent: '#6ee7b7',
+  accentSoft: '#a7f3d0',
+} as const;
+
+export const ctaGaussOpacity = {
+  fill: 0.18,
+  fillEnd: 0,
+  line: 0.35,
+  lineSoft: 0.15,
+} as const;
+
+export function hexToRgba(hex: string, alpha: number): string {
+  const value = hex.replace('#', '');
+  const r = parseInt(value.slice(0, 2), 16);
+  const g = parseInt(value.slice(2, 4), 16);
+  const b = parseInt(value.slice(4, 6), 16);
+  return `rgba(${r},${g},${b},${alpha})`;
+}

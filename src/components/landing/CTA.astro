@@ -1,6 +1,14 @@
 ---
 import { siteConfig } from '../../data/siteConfig';
+import {
+  ctaGaussColors,
+  ctaGaussOpacity,
+  hexToRgba,
+} from '../../constants/theme';
 import Button from '../common/Button.astro';
+
+const gaussLineStroke = hexToRgba(ctaGaussColors.accent, ctaGaussOpacity.line);
+const gaussLineSoftStroke = hexToRgba(ctaGaussColors.accentSoft, ctaGaussOpacity.lineSoft);
 ---
 
 <section id="contacto" class="relative overflow-hidden py-20 bg-ate-primary dark:bg-gradient-to-b dark:from-ate-primary/30 dark:to-ate-surface border-t border-transparent dark:border-white/5 text-white">
@@ -8,13 +16,13 @@ import Button from '../common/Button.astro';
     <svg class="w-full h-full" viewBox="0 0 1200 400" preserveAspectRatio="none">
       <defs>
         <linearGradient id="ctaGaussFill" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#6ee7b7" stop-opacity="0.18"></stop>
-          <stop offset="100%" stop-color="#6ee7b7" stop-opacity="0"></stop>
+          <stop offset="0%" stop-color={ctaGaussColors.accent} stop-opacity={ctaGaussOpacity.fill}></stop>
+          <stop offset="100%" stop-color={ctaGaussColors.accent} stop-opacity={ctaGaussOpacity.fillEnd}></stop>
         </linearGradient>
       </defs>
       <path class="cta-gauss-fill" fill="url(#ctaGaussFill)"></path>
-      <path class="cta-gauss-line" fill="none" stroke="rgba(110,231,183,0.35)" stroke-width="1.5" vector-effect="non-scaling-stroke"></path>
-      <path class="cta-gauss-line-soft" fill="none" stroke="rgba(167,243,208,0.15)" stroke-width="1" vector-effect="non-scaling-stroke"></path>
+      <path class="cta-gauss-line" fill="none" stroke={gaussLineStroke} stroke-width="1.5" vector-effect="non-scaling-stroke"></path>
+      <path class="cta-gauss-line-soft" fill="none" stroke={gaussLineSoftStroke} stroke-width="1" vector-effect="non-scaling-stroke"></path>
     </svg>
   </div>
 
